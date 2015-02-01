@@ -1,0 +1,106 @@
+
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div class="wrap jj">
+	<ul class="nav nav-tabs">
+     <li><a href="__ROOT__/index.php?g=Certificate&m=Indexadmin">证书管理</a></li>
+     <li class="active"><a href="__ROOT__/index.php?g=Certificate&m=Indexadmin&a=add">添加证书</a></li>
+    </ul>
+  <div class="common-form">
+    <!--form method="post" class="J_ajaxForm" action="{:U('AdminTerm/listorders')">">
+      <div class="table_list">
+	    <table width="100%" class="table table-hover">
+	        <thead>
+	          <tr>
+	            <th width="80">排序</th>
+	            <th width="100">ID</th>
+	            <th>分类名称</th>
+	            <th>分类类型</th>
+	            <th align='center'>访问</th>
+	            <th>操作</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	        	{$taxonomys">
+			</tbody>
+	      </table>
+  </div>
+  		<div class="form-actions">
+            <button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">排序</button>
+      </div>
+    </form-->
+ <div class="col-right">
+    <div class="table_full">
+      <table width="100%" cellpadding="2" cellspacing="2">
+         <tr>
+          <td><b>缩略图</b></td>
+        </tr>
+        <tr>
+          <td>
+          	<div  style="text-align: center;"><input type='hidden' name='slide_pic' id='thumb' value=''>
+			<a href='javascript:void(0);' onclick="flashupload('thumb_images', '附件上传','thumb',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','content','12','b6ba209759e147124653ac77362ef2bd');return false;">
+			<img src='__ROOT__/statics/images/icon/upload-pic.png' id='thumb_preview' width='135' height='113' style='cursor:hand' /></a>
+            <input type="button"  class="btn" onclick="$('#thumb_preview').attr('src','__ROOT__/statics/images/icon/upload-pic.png');$('#thumb').val('');return false;" value="取消图片">
+            </div>
+			</td>
+        </tr>
+        
+      </table>
+    </div>
+  </div>
+	<literal><style>
+	li{list-style:none;}
+	.col-right {
+	float: right;
+	width: 210px;
+	overflow: hidden;
+	margin-left: 6px;
+	border: 1px solid #c2d1d8;
+}
+	</style></literal>
+	<div id="post">
+				 <li >姓　　名:　<input type="text" value="" class="name"></li>
+				 
+				 <li > 所学专业:　<input type="text" value="临床医学" class="major"></li>
+				 <li  >专业名称:　 <input type="text" value="美容整形" class="major2"></li>
+				 <li  >毕业院校: 　<input type="text" value="中国医科大学" class="graduate"></li>
+				<li >性　　别:　 <input type="text" value="" class="sex"></li>
+				 <li >出生年月:　 <input type="text" value="/ / /" class="born"></li>
+				 <li >户　　籍:　 <input type="text" value="" class="huji"></li>	 
+				 <li >民　　族:　 <input type="text" value="汉" class="family"></li>
+				 <li >政治面貌:　 <input type="text" value="群众" class="plitic"></li>
+				 <li >资格名称: 　<input type="text" value="国际注册整形主任医师" class="status"></li>
+				 <li >国　　籍:　 <input type="text" value="中国" class="country"></li>
+				 <li >证件编码:　 <input type="text" value="" class="paperNo"></li>
+				 <li >证书编码:　 <input type="text" value="" class="bookNo"></li>
+				 <li >入会时间:　 <input type="text" value=" 年 月 日" class="join_date"></li>
+	  	<div class="form-actions">
+            <button class="btn btn-primary btn_submit J_ajax_submit_btn" id="btnAdd">增加</button>
+        </div>
+	</div>
+  </div>
+<literal> <script>
+
+$('#btnAdd').click(function(){
+	var inputClass='array('+'"titlepic"=>"'+$('#thumb_preview').attr("src")+'",';
+	$("#post input").each(function(){
+		inputClass+='"'+$(this).attr("class")+'"=>'+'"'+$(this).attr("value")+'",';
+	});
+	inputClass=inputClass.replace(/,$/ig,"")+');'; 
+	$.ajax({
+		type:"post",
+		url:"__ROOT__/index.php?g=Certificate&m=Indexadmin&a=addPost",
+		data:{input:inputClass},
+		dataType:"html",
+		success:function(data){
+			alert(data);
+		}
+	});
+});
+</script></literal>
+</div>
+<script src="__ROOT__/statics/js/common.js?"></script>
+<script type="text/javascript" src="__ROOT__/statics/js/content_addtop.js"></script>
+</body>
+</html>
+

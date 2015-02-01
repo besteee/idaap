@@ -1,0 +1,48 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div class="wrap jj">
+	<ul class="nav nav-tabs">
+     <li class="active"><a href="__ROOT__/index.php?g=Certificate&m=Indexadmin">商品管理q</a></li>
+     <li><a href="__ROOT__/index.php?g=Certificate&m=Indexadmin&a=add">添加商品</a></li>
+     <li><a href="__ROOT__/index.php?g=Certificate&m=Indexadmin&a=add">修改商品</a></li>
+	</ul>
+
+  <div class="common-form">
+    <form method="post" class="J_ajaxForm" action="{:U('AdminTerm/listorders')}">
+      <div class="table_list">
+	    <table width="100%" class="table table-hover">
+	        <thead>
+	          <tr>
+	            <th width="80">ID</th>
+	            <th width="100">名字</th>
+	            <th>证件号码</th>
+	            <th>证书号码</th>
+	            <th align='center'>日期</th>
+	            <th>操作</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	        	<volist name="data" id="vo">
+				<tr>
+					<td>{$vo.id}</td>
+					<td>{$vo.name}</td>
+					<td>{$vo.paperNo}</td>
+					<td>{$vo.bookNo}</td>
+					<td>{$vo.join_date}</td>
+					<td><a href="__ROOT__/index.php?g=Certificate&m=Indexadmin&a=alter&id={$vo.id}">修改</a> | <a href="__ROOT__/index.php?g=Certificate&m=Indexadmin&a=cdelete&id={$vo.id}">删除</a></td>
+
+				</tr>
+	        	</volist>
+			</tbody>
+	      </table>
+  </div>
+  		<div class="form-actions">
+            <button class="btn btn-primary btn_submit J_ajax_submit_btn">页面</button>{$page}
+      </div>
+    </form>
+  </div>
+</div>
+<script src="__ROOT__/statics/js/common.js?"></script>
+</body>
+</html>
+

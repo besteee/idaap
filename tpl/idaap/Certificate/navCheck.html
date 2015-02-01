@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$name} {$seo_title} {$site_name}</title>
+	<meta name="keywords" content="{$seo_keywords}" />
+	<meta name="description" content="{$seo_description}">
+    <tc_include file="Public:head" />
+</head>
+<body>
+<tc_include file="Public:nav" />
+<div class="container tc-main">
+	
+	
+    <div class="pg-opt pin">
+        <div class="container">
+            <h2>证书查询</h2>
+        </div>
+    </div>
+    <div class="row">
+				<center><form method="post" action="__ROOT__/index.php?g=Certificate&a=check">
+				证书编号：<input class="s1" name="user_id" value="" style="width:140px; border-radius:3px;" > <br><br>
+				姓　　名：<input class="s1" name="user_name" value="" style="width:140px; border-radius:3px;" > <br><br>
+				证件号码：<input class="s1" name="user_icNum" value="" style="width:140px; border-radius:3px;" > <br><br>
+				<input name="imageField" type="submit" value="开始查询" style="height:30px; width:80px; font-size:13px;"> <!--button style="height:30px; width:80px; font-size:13px;">在线报名</button-->
+				</form></center>
+    </div>
+    
+    
+    <tc_include file="Public:footer" />
+</div>
+
+    
+<!-- JavaScript -->
+<tc_include file="Public:scripts" />
+</body>
+</html>

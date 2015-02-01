@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$name} {$seo_title} {$site_name}</title>
+	<meta name="keywords" content="{$seo_keywords}" />
+	<meta name="description" content="{$seo_description}">
+    <tc_include file="Public:head" />
+</head>
+<body>
+<tc_include file="Public:nav" />
+<div class="container tc-main">
+	
+	
+    <div class="pg-opt pin">
+        <div class="container">
+            <h2>证书查询结果</h2>
+        </div>
+    </div>
+    <div class="row">
+		<volist name="data" id="vo">
+			<div class="member_left">
+				<div id="member_img"><center><img src="{$vo.titlepic}" width="110px" height="160px"></center></div> 
+				 <li >姓　　名:　{$vo.name}</li>
+				 
+				 <li > 所学专业:　{$vo.major}</li>
+				 <li  >专业名称:　 {$vo.major2}</li>
+				 <li  >毕业院校: 　{$vo.graduate}</li>
+			</div>
+			<div id="member_right">
+				<li >性　　别:　 {$vo.sex}</li>
+				 <li >出生年月:　 {$vo.born}</li>
+				 <li >户　　籍:　 {$vo.huji}</li>	 
+				 <li >民　　族:　 {$vo.family}</li>
+				 <li >政治面貌:　 {$vo.plitic}</li>
+				 <li >资格名称: 　{$vo.status}</li>
+				 <li >国　　籍:　 {$vo.country}</li>
+				 <li >证件编码:　 {$vo.paperNo}</li>
+				 <li >证书编码:　 {$vo.bookNo}</li>
+				 <li >入会时间:　 {$vo.join_date}</li>
+			</div>
+
+
+		</volist>
+		{$newstext}
+    </div>
+    
+    
+    <tc_include file="Public:footer" />
+</div>
+
+    
+<!-- JavaScript -->
+<tc_include file="Public:scripts" />
+</body>
+</html>
